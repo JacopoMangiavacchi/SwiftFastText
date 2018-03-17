@@ -1,2 +1,2 @@
 # SwiftFastText
-Swift wrapper to Facebook FastText Library for efficient text classification and representation learning
+Swift wrapper for the Facebook FastText Library for efficient text classification and representation learning

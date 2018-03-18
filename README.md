@@ -5,7 +5,7 @@ Swift wrapper for the Facebook FastText Library for efficient text classificatio
 ## Build
 Build with C++ 11 support
 
-  swift build -Xcxx -std=c++11
-  swift build -c release -Xcxx -std=c++11
+    swift build -Xcxx -std=c++11
+    swift build -c release -Xcxx -std=c++11
   
  

@@ -14,6 +14,8 @@ extern "C" {
 
     const void * initializeFastTextObject();
     void fasttextLoadModel(const void *object, const char* path);
+    int fasttextgetDimension(const void *object);
+    void fasttextgetSentenceVector(const void *object, const char* sentence, double* sentenceVector);
 
 #ifdef __cplusplus
 }

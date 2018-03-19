@@ -9,24 +9,24 @@
 import Foundation
 import CFastTextWrapper
 
-open class FastText {
+open class SwiftFastText {
     fileprivate let fastTextObject: UnsafeMutableRawPointer
 
-    init() {
+    public init() {
         self.fastTextObject = UnsafeMutableRawPointer(mutating: CFastTextWrapper.initializeFastTextObject())
     }
     
-    convenience init(withModelUrl: URL) {
+    public convenience init(withModelUrl: URL) {
         self.init()
         loadModel(withModelUrl)
     }
 
-    func loadModel(_ url: URL) {
+    public func loadModel(_ url: URL) {
         var cPath = url.path.cString(using: .utf8)!
         CFastTextWrapper.fasttextLoadModel(fastTextObject, &cPath);    
     }
     
-    func getSentenceVector(sentence: String) -> [Double] {
+    public func getSentenceVector(sentence: String) -> [Double] {
         var cSentence = sentence.cString(using: .utf8)!
         var sentenceVector = [Double](repeating: 0.0, count: Int(CFastTextWrapper.fasttextgetDimension(fastTextObject)))
 

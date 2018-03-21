@@ -26,9 +26,13 @@ open class SwiftFastText {
         CFastTextWrapper.fasttextLoadModel(fastTextObject, &cPath);    
     }
     
-    public func getSentenceVector(sentence: String) -> [Double] {
+    public func getDimension() -> Int {
+        return Int(CFastTextWrapper.fasttextgetDimension(fastTextObject))
+    }
+
+    public func getSentenceVector(sentence: String) -> [Float] {
         var cSentence = sentence.cString(using: .utf8)!
-        var sentenceVector = [Double](repeating: 0.0, count: Int(CFastTextWrapper.fasttextgetDimension(fastTextObject)))
+        var sentenceVector = [Float](repeating: 0.0, count: Int(CFastTextWrapper.fasttextgetDimension(fastTextObject)))
 
         CFastTextWrapper.fasttextgetSentenceVector(fastTextObject, &cSentence, &sentenceVector);    
 

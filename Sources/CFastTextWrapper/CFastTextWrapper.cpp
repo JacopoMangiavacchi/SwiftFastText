@@ -30,7 +30,7 @@ int fasttextgetDimension(const void *object) {
 }
 
 
-void fasttextgetSentenceVector(const void *object, const char* sentence, double* sentenceVector) {
+void fasttextgetSentenceVector(const void *object, const char* sentence, float* sentenceVector) {
     fasttext::FastText *ft = (fasttext::FastText *)object;
     fasttext::Vector svec(ft->getDimension());
     std::string mystring(sentence);
@@ -39,6 +39,6 @@ void fasttextgetSentenceVector(const void *object, const char* sentence, double*
     ft->getSentenceVector(is, svec);
 
     for (int i=0; i<svec.size(); i++) {
-        sentenceVector[i] = (double)svec[i];
+        sentenceVector[i] = (float)svec[i];
     }
 }
